@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'crispy_forms',
 ]
-
+email='email'
 EMAIL_USE_TLS=True
 EMAIL_HOST=EMAIL_HOST
 EMAIL_HOST_USER=EMAIL_HOST_USER
