@@ -275,10 +275,7 @@ hr {
 	background-size: cover;
 	-o-background-size: cover;
 }
-img{
-	width: 100%;
-	height: auto;
-}
+
 #profile_background{
 	background: url(../img/baseball_field_1.jpg);
 }
@@ -300,7 +297,7 @@ img{
 	font-size: 18px;
 }
 
-@media(min-width:768px) {
+@media(min-width:200px) {
 #intro {
 	height: 100%;
 	padding: 0;
@@ -671,13 +668,13 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-top: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 200px) {
 .hover-bg .hover-text {
 	padding: 20%;
 }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 200px) {
 #intro .intro-body H1 {
 	font-size: 5em;
 }
