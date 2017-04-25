@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6d448f7-3234-4701-9c0a-adfd7c67a989" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/static/css/style.css" afterPath="$PROJECT_DIR$/accounts/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static_all/css/style.css" afterPath="$PROJECT_DIR$/static_all/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,6 +14,9 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -75,8 +77,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="372" column="30" lean-forward="false" selection-start-line="372" selection-start-column="30" selection-end-line="372" selection-end-column="30" />
+            <state relative-caret-position="119">
+              <caret line="303" column="0" lean-forward="true" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,6 +112,7 @@
       <find>@media</find>
       <find>services</find>
       <find>img</find>
+      <find>@</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -359,12 +362,19 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/xplosionapp" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="SearchEverywhereHistoryKey" value="hmac/ur&#9;FILE&#9;file://C:/Python27/Lib/site-packages/registration/backends/hmac/urls.py&#10;hmac.&#9;FILE&#9;file://C:/Python27/Lib/hmac.py&#10;.nav &#9;null&#9;null&#10;contrib&#9;null&#9;null&#10;auth&#9;FILE&#9;file://C:/Python27/Lib/site-packages/registration/auth_urls.py&#10;auth_&#9;null&#9;null&#10;registration.auth_urls&#9;null&#9;null&#10;re&#9;FILE&#9;file://C:/Python27/Lib/site-packages/registration/tests/templates/registration/registration_form.html&#10;registration_form&#9;FILE&#9;file://C:/Python27/Lib/site-packages/registration/tests/templates/registration/registration_form.html&#10;registration.backends.hmac.urls&#9;null&#9;null&#10;is_confir&#9;null&#9;null&#10;player_set&#9;null&#9;null&#10;cris&#9;null&#9;null" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1078,8 +1088,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="372" column="30" lean-forward="false" selection-start-line="372" selection-start-column="30" selection-end-line="372" selection-end-column="30" />
+        <state relative-caret-position="119">
+          <caret line="303" column="0" lean-forward="true" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
           <folding />
         </state>
       </provider>
