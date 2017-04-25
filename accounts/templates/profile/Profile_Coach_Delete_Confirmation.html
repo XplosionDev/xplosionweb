@@ -1,0 +1,36 @@
+{% extends 'profile/header.html' %}
+{% block content %}
+
+  <body style="background-color:#000">
+
+{% include 'profile/Navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% include 'profile/Sidebar.html' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+   <div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Delete|<span style="color:red">Confirmation</span></h2>
+      <h4 style="color: white">Are you Sure you want to <span style="color:red;">PERMANENTLY</span> delete your profile?</h4>
+        <hr style="background-color: red">
+      <a href="{% url 'Coach_Delete' %}" style="font-size: larger; color: red;">Yes, I want to delete</a><br>
+      <a href="{% url 'Coach_Profile' %}" style="font-size: larger">Return to Profile</a>
+
+    </div>
+
+    <div class="col-md-8 col-md-offset-1">
+
+    </div>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+  </body>
+{% endblock %}

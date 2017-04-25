@@ -1,0 +1,68 @@
+{% extends "profile/header.html" %}
+{% block content %}
+
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!--<div id="preloader">
+    {% load static %}
+  <div id="status"> <img src={% static 'img/preloader.gif'%}; height="64" width="64" alt=""> </div>
+</div>-->
+<!-- Navigation -->
+<nav class="navbar-custom navbar-fixed-top" style="background-color:black">
+  <div class="container">
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+      <a class="navbar-brand page-scroll" href="{% url 'index' %}"> <i class="fa fa-angle-double-right"></i> Xplosion</a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+       <!-- <li class="text-center"> <button type="button" class="btn btn-link btn-lg" data-toggle="modal" style="color: #E75926;"data-target="#myModal">Sign-In</button>  </li>-->
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container --> 
+</nav>
+
+
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+ <h2>Success! a email has been sent to activate your account|<span style="color:#E75926;">(go to email provided)</span></h2>      <hr>
+    </div>
+
+
+        {% include 'profile/form.html' %}
+
+
+
+
+    </div>
+  </div>
+<div id="contact" class="text-center">
+    <p>If any questions may arise feel free to contact us at any time</p>
+      <div class="social">
+        <h3>Follow us</h3>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+</div>
+
+
+<div id="footer">
+  <div class="container">
+    <p>Copyright &copy; Xplosion</p>
+    <p>Xplosiondev@gmail.com</p>
+  </div>
+</div>
+
+
+</body>
+{% endblock %}

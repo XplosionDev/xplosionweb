@@ -1,0 +1,58 @@
+{% extends 'profile/header.html' %}
+{% block content %}
+  <body style="background-color:#000">
+
+    {% include 'profile/Navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+       {% include 'profile/Sidebar.html' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header" style="color:#fff; font-size:5em">Team Players</h1>
+
+
+          <div class="table-responsive">
+            <table class="table table-striped" style="color:#E75926">
+              <thead>
+                <tr>
+                  <th>Player Team</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>Position</th>
+
+                </tr>
+              </thead>
+              <tbody>
+              {% for players in players%}
+                <tr>
+                  <td>{{ players.team }}</td>
+                  <td><a href="{% url 'Coach_Player_View' players.id %}">{{ players.first_name}}</a></td>
+                  <td>{{ players.last_name}}</td>
+                  <td>{{ players.hometown}}</td>
+                  <td>{{ players.homestate}}</td>
+                  <td>{{ players.position}}</td>
+                  <td><a href="{% url 'Coach_Player_View_Update' players.id %}">Update Player</a></td>
+                  <td><a href="{% url 'Coach_Player_View_Delete' players.id %}">Delete Player</a></td>
+
+                </tr>
+              {% endfor %}
+
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+            <button  type="button" class="btn btn-default" value="Add Team" ><a style="color: white" href="{% url 'Coach_Profile_Add_Player' %}">Add Player</a></button>
+
+          </div>
+        </div>
+      </div>
+    
+
+
+  </body>
+{% endblock %}

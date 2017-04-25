@@ -1,0 +1,57 @@
+{% extends 'profile/header.html' %}
+{% block content %}
+  <body style="background-color:#000">
+
+    {% include 'profile/Navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+       {% include 'profile/Sidebar.html' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header" style="color:#fff; font-size:5em">{{ pname.first_name }} Stats</h1>
+
+
+          <div class="table-responsive">
+            <table class="table table-striped" style="color:#E75926">
+              <thead>
+                <tr>
+                  <th>Swing Name</th>
+                  <th>Speed</th>
+                  <th>start rotation x</th>
+                  <th>end rotation x</th>
+                  <th>start rotation y</th>
+                  <th>end rotation y</th>
+                  <th>start rotation z</th>
+                  <th>end rotation z</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for player in player%}
+                <tr>
+                  <td><a>{{ player.swing_name }}</a></td>
+                  <td><a>{{ player.speed }}</a></td>
+                  <td><a>{{ player.start_rot_x }}</a></td>
+                  <td><a>{{ player.end_rot_x }}</a></td>
+                  <td><a>{{ player.start_rot_y }}</a></td>
+                  <td><a>{{ player.end_rot_y }}</a></td>
+                  <td><a>{{ player.start_rot_z }}</a></td>
+                  <td><a>{{ player.end_rot_z }}</a></td>
+                </tr>
+              {% endfor %}
+
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    
+
+
+  </body>
+{% endblock %}

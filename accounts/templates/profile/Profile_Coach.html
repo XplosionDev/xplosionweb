@@ -1,0 +1,64 @@
+{% extends 'profile/header.html' %}
+{% include "profile/messages_display.html" %}
+{% block content %}
+
+
+  <body style="background-color:#000">
+
+{% include 'profile/Navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% include 'profile/Sidebar.html' %}
+      {% load static %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
+            <br>
+            <h1 class="page-header" style="color:#fff; font-size: 2em;">Profile<span style="color:#E75926">|</span>Coach</h1>
+
+          <div class="row placeholders">
+            
+            
+            <div class="col-xs-6 col-sm-3 placeholder">
+                {% if user.profile.profile_picture %}
+                    <img src="{{ user.profile.profile_picture.url  }}"  alt="Upload Profile picture below" width="200" height="200" class="img-responsive" >
+               {% else %}
+                    {% load static %}
+                    <img src="{% static 'img/team/01.jpg' %}" alt="Upload Profile picture below" width="200" height="200" class="img-responsive" >
+               {% endif %}
+                {% if user.last_name %}
+                <h4 style="color:#fff;">Coach {{ user.last_name }}</h4>
+                {% else %}
+                <h4 style="color:#fff;">Coach {{ user.username }}</h4>
+                {% endif %}
+              <span class="text-muted" style="color:#fff;"></span>
+            <ul>
+                <li><a class="nav " href="{% url 'Coach_Profile_Change_Email' %}">change email</a></li>
+                <li><a class="nav " href="{% url 'Coach_Profile_Change_FLname' %}">change first and last name</a></li>
+                <li><a class="nav " href="{% url 'Coach_Profile_Change_location' %}">change location</a></li>
+                <li><a class="nav " href="{% url 'Coach_change' %}">change password</a></li>
+            </ul>
+
+            <br>
+            <a style="color: red" href="{% url 'Coach_Delete_Confirm' %}">Delete Profile</a>
+            </div>
+             <div class="col-xs-6">
+              <h4 class="text-left" style="color:#E75926;">Teams: </h4>
+                 {% for teams in teams %}
+                     <p>{{ teams }}</p>
+                 {% endfor %}
+             {% if user.profile.city and user.profile.state %}
+              <h4 class="text-left" style="color:#E75926;">{{ user.profile.city }}, {{ user.profile.state }}</h4>
+             {% else %}
+              <h4 class="text-left" style="color:white;">Enter your location below to view it on your profile</h4>
+             {% endif %}
+            </div>
+            
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

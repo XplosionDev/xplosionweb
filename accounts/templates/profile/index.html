@@ -1,0 +1,242 @@
+{% extends "profile/header.html" %}
+{% block content %}
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+{% load static %}
+<!-- Navigation -->
+<nav class="navbar-custom navbar-fixed-top" role="navigation">
+
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+      <a class="navbar-brand page-scroll navbar-left" href="{% url 'index' %}"> <i class="fa fa-angle-double-right"></i> Xplosion</a>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li style="display: block" class="hidden dropdown"> <a href="#page-top"></a> </li>
+        <li style="display: block" class="dropdown"> <a class="page-scroll" href="#about">About</a> </li>
+        <li style="display: block" class="dropdown"> <a class="page-scroll" href="#services">Services</a> </li>
+        <li style="display: block" class="dropdown"> <a class="page-scroll" href="#team">Team</a> </li>
+        <li style="display: block" class="dropdown"> <a class="page-scroll" href="#contact">Contact</a> </li>
+          {% if  not request.user.is_authenticated %}
+        <li id="xplosion1" style="display: block" class="dropdown"> <a href="{% url 'registration_register' %}"><span class="glyphicon glyphicon-user"></span>Coach Register</a></li>
+          {% endif %}
+        <li style="display: block" class="dropdown"> <a onclick="toggle_visibility('login_id');"><span class="glyphicon glyphicon-log-in"></span> login</a>
+      </ul>
+        <ul class="nav navbar-nav navbar-left">
+          {% if request.user.is_authenticated %}
+            <li style="display: block" class="dropdown"><a href="{% url 'logout' %}">Logout</a></li>
+            <li style="display: block" class="dropdown"><a href="{% url 'Coach_Profile' %}">Profile</a></li>
+
+            {% endif %}
+          </ul>
+<div style="display: none" id="login_id" class="navbar-left">
+          {% if not request.user.is_authenticated and not "login" in request.get_full_path %}
+            <form class='navbar-form navbar-right' method='POST' action='{% url "login" %}'>{% csrf_token %}
+              <div class='form-group'>
+                  <input type='text' class='form-control' name='username' placeholder='Username' />
+              </div>
+              <div class='form-group'>
+                  <input type='password' class='form-control' name='password' placeholder='Password' />
+              </div>
+              <input type='submit' class="form-control" style="background-color: #E75926; color: #ffffff; border-color: #e75926 " value="submit">
+          </form>
+          {% endif %}
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+  <!-- /.container -->
+</nav>
+
+
+<!-- Header -->
+<div id="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <img src="{% static 'img/colorlogo.png' %}">
+          <p class="intro-text"></p>
+           </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>About us</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+          <img src="{% static 'img/blacklogo.png' %}" class="img-responsive">
+      </div>
+      <div class="col-md-4">
+        <div class="about-text">
+          <h4>Our Mission</h4>
+          <p>In the world of sports, there are two types of players. The athlete with pure talent consistently performing at a high level and the average player who works twice as hard to produces the same results. Most of us will never be Babe Ruth or Barry Bonds, but that still doesn’t stop us from striving to be the best athlete possible. 11. 5 million people play baseball ranging from all ages and genders, making it the fourth most played sport in the world. Having the ability to hit a 95mph baseball with a narrow stick is arguably one of the toughest feats to consistently achieve in all of sports. At Xplosion, we never question the players passion for the game, recognizing that the motive to work hard is in every player's heart and we want to provide the tools to help enhance results.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-text">
+          <h4>Goals</h4>
+          <ul>
+            <li>Improve Accuracy</li>
+            <div></div>
+            <li>Develop Swing</li>
+            <div></div>
+            <li>Build Confidence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services Section -->
+<div id="services" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Our Services</h2>
+      <hr>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-phone-square"></i>
+          <h3>Customer Services</h3>
+          <p> Every customer that comes to us will be treated with the upmost respect and will be provided with excellent service.Furthermore, the customer can be
+          contact our help desk at any time</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-tablet"></i>
+          <h3>Mobile App</h3>
+          <p>Our mobile app will be free to the users and will easy to manage various stats</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-html5"></i>
+          <h3>Website</h3>
+          <p>Our coaches and recruiters will have an easy time navigating through the website and can login to see their profiles</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+          <h3>Reliability</h3>
+          <p>If there is any problems with our website or mobile app we will work to terminate the problem </p>
+        </div>
+      </div>
+    </div>
+
+      </div>
+    </div>
+
+<!-- Team Section -->
+<div id="team" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Team Members</h2>
+      <hr>
+
+    </div>
+    <div id="row">
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <i class="fa fa-user fa-5x"></i>
+          <div class="caption">
+            <h3>Kehlin Swain</h3>
+            <p>Founder / CEO</p>
+            <p> Kehlin Swain is a computer engineering student and has completed internships with the National Aeronautics and Space Administration (NASA) and Intel. In his training, he has learned about the software and has developed a program that is used to communicate with the sensor while collecting data and implementing it in the design to create the final swing sensor.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <i class="fa fa-user fa-5x"></i>
+          <div class="caption">
+            <h3>Santiago Rojas</h3>
+            <p>CPO and founder</p>
+            <p> Santiago Rojas is currently a student athlete majoring in mechanical engineering who currently plays for the Prairie View A&M University baseball team, and has established a connection with his university to beta test the bat with his teammates. He also uses his familiarity to personalize the feel of the Nuke bat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="caption"><i class="fa fa-user fa-5x"></i>
+            <h3>Isis Ashford </h3>
+            <p>CCO and cofounder</p>
+            <p> Isis Ashford is an electrical engineering student that has started her family business in Home and Repair and Maintenance. She was the lead negotiator and sales person to accelerate business profits' to an all time high. Now she can blend her love for technology and bring into play her knowledge of coding and marketing. Together we posses the essential components to make this vision come alive. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <div class="caption"><i class="fa fa-user fa-5x"></i>
+            <h3>XplosionDev </h3>
+            <p>App & Website Development</p>
+            <p> In order to make this vision come true we trusted Kamron McClain, Danielle Holland, Todd Boone II and Mahlah Murray to come up with an
+            inspiring website and application. Their determination and hardwork towards the work at hand will help drive this company into the future. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Contact us</h2>
+      <hr>
+      <p>If any questions may arise feel free to contact us at any time</p>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
+          <p>100 University Dr, <br>
+            Prairie View, TX 77446</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
+          <p>xplosiondev@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
+          <p> (936) 261-3311</p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+
+
+      <div class="social">
+        <h3>Follow us</h3>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--footer-->
+<div id="footer">
+  <div class="container">
+    <p>Copyright &copy; Xplosion</p>
+    <p>Xplosiondev@gmail.com</p>
+  </div>
+</div>
+
+</body>
+{% endblock %}

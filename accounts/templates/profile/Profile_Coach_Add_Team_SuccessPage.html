@@ -1,0 +1,35 @@
+{% extends 'profile/header.html' %}
+{% block content %}
+
+  <body style="background-color:#000">
+
+    {% include 'profile/Navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% include 'profile/Sidebar.html' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+   <div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Edit|<span style="color:#E75926;">Profile</span></h2>
+      <hr>
+        <h4 style="color: #ffffff">Success! go to your Team Roster to see the changes.</h4>
+        <a href="{% url 'Coach_Profile_Add_Team' %}">Click to Add Another Team</a>
+
+    </div>
+
+    <div class="col-md-8 col-md-offset-1">
+
+    </div>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+  </body>
+{% endblock %}
