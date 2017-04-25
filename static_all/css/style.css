@@ -2,7 +2,7 @@
   display: none;
   background-color:#000;
 }
-@media (min-width: 200px) {
+@media (min-width: 768px) {
   .sidebar {
     position: fixed;
     top: 51px;
@@ -268,9 +268,9 @@ hr {
 	font-size: 18px;
 }
 
-@media(min-width:200px) {
+@media(min-width:768px) {
 #intro {
-	height: 100%;
+	height: auto;
 	padding: 0;
 }
 #intro .intro-body .intro-text {
@@ -641,13 +641,13 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-top: 10px;
 }
 
-@media (max-width: 200px) {
+@media (max-width: 768px) {
 .hover-bg .hover-text {
 	padding: 20%;
 }
 }
 
-@media (max-width: 200px) {
+@media (max-width: 640px) {
 #intro .intro-body H1 {
 	font-size: 5em;
 }
