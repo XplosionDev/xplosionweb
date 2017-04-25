@@ -296,19 +296,9 @@ hr {
 	font-size: 18px;
 }
 
-@media(min-width:200px) {
+@media(min-width:768px) {
 #intro {
-	background: url(../img/baseball_field_2.jpg);
-	background-size: contain;
-	background-repeat: no-repeat;
-
-	padding: 0;
-}
-#services {
-	background: url(../img/black_wood.jpg);
-	background-size: contain;
-	background-repeat: no-repeat;
-
+	height: 100%;
 	padding: 0;
 }
 #intro .intro-body .intro-text {
