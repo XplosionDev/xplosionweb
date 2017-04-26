@@ -9,8 +9,7 @@
        {% include 'profile/Sidebar.html' %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header" style="color:#fff; font-size:5em">Team Players</h1>
-
-
+          <h5 style="color: #E75926; text-align: center">Click Players first name to view stats</h5>
 
           <div class="table-responsive">
             <table class="table table-striped" style="color:#E75926">
@@ -47,7 +46,7 @@
           </div>
 
 
-            <button  type="button" class="btn btn-default" value="Add Team" ><a style="color: white" href="{% url 'Coach_Profile_Add_Player' %}">Add Player</a></button>
+            <a style="color: white" class="btn btn-default" href="{% url 'Coach_Profile_Add_Player' %}">Add Player</a>
 
           </div>
         </div>

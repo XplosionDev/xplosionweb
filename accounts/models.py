@@ -25,9 +25,6 @@ class Coach(models.Model):
     user= models.OneToOneField(User, on_delete=models.CASCADE, unique=True, related_name='profile')
     city = models.CharField(max_length=21)
     state = models.CharField(max_length=20, choices=state_choice)
-    resume = models.FileField(blank=True, null=True)
-    certification = models.FileField(blank=True, null=True)
-    profile_picture = models.ImageField(upload_to='Coach/profile_image',null=True,blank=True)
 
 
     def create_profile(sender, **kwargs):
