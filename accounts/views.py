@@ -16,7 +16,7 @@ from django.shortcuts import render, redirect,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User,Group
 from django.http import Http404
-from .models import Coach,Player,Swing
+
 from .forms import UserLoginForm, UserRegisterForm,UserProfileinfo,PlayerRegistrationForm,teamregistration,TeamUpdate,PlayerUpdate,Useremailedit,Userflnameedit
 from . import models
 
@@ -45,7 +45,7 @@ def view_profile(request, pk=None):
         user = User.objects.get(pk=pk)
     else:
         user = request.user
-    teams=user.profile.team_set.all()
+    teams=user.profile.teams_set.all()
     args = {'user': user, 'teams': teams}
     return render(request, 'profile/Profile_Coach.html', args)
 @login_required
@@ -200,16 +200,16 @@ def index(request):
 
 def Coach_Profile_Player_View(request,player_id):
     try:
-        player= models.Player.objects.get(id=player_id).swing_set.all()
-        pname= models.Player.objects.get(id=player_id)
-    except models.Player.DoesNotExist:
+        player= models.Players.objects.get(id=player_id).swings_set.all()
+        pname= models.Players.objects.get(id=player_id)
+    except models.Players.DoesNotExist:
         raise Http404("Player Does not exist")
     args={'player':player,'pname': pname}
     return render(request, 'profile/Profile_Coach_Player_View.html', args)
 
 def Coach_Profile_Player_View_Update(request,player_id):
     try:
-        player= models.Player.objects.get(id=player_id)
+        player= models.Players.objects.get(id=player_id)
         if request.method == 'POST':
             form = PlayerUpdate(request.POST, instance=player)
 
@@ -222,7 +222,7 @@ def Coach_Profile_Player_View_Update(request,player_id):
 
             else:
                 messages.error(request, ('Please correct the error below.'))
-    except models.Team.DoesNotExist:
+    except models.Teams.DoesNotExist:
         raise Http404("Team does not exist")
     form = PlayerUpdate(request.POST or None,instance=player)
     args = {'form': form}
@@ -230,27 +230,27 @@ def Coach_Profile_Player_View_Update(request,player_id):
 
 def Coach_Profile_Player_View_Delete(request,player_id):
     try:
-        models.Player.objects.get(id=player_id).delete()
-    except models.Team.DoesNotExist:
+        models.Players.objects.get(id=player_id).delete()
+    except models.Teams.DoesNotExist:
         raise  Http404("Player does not exist")
     return render(request, 'profile/Profile_Coach_Team_SuccessPage.html')
 
 def Coach_Profile_Team(request):
-    team = request.user.profile.team_set.all()
+    team = request.user.profile.teams_set.all()
     args = {'team':team}
     return render(request, 'profile/Profile_Coach_Team.html', args)
 def Coach_Profile_Team_View(request,team_id):
     try:
-        team=models.Team.objects.get(id=team_id).player_set.all()
-        #players=models.Player.objects.filter(team=team).all()
-        #players=models.Player.objects.filter(team=team).get()
-    except models.Team.DoesNotExist:
+        team=models.Teams.objects.get(id=team_id).players_set.all()
+        #players=models.Players.objects.filter(team=team).all()
+        #players=models.Players.objects.filter(team=team).get()
+    except models.Teams.DoesNotExist:
         raise Http404("Team does not exist")
-    #players=team.player_set.all()
+    #players=team.players_set.all()
     return render(request, 'profile/Profile_Coach_Team_View.html', {'players':team})
 def Coach_Profile_Team_View_Update(request,team_id):
     try:
-        team = models.Team.objects.get(id=team_id)
+        team = models.Teams.objects.get(id=team_id)
         if request.method == 'POST':
             form = TeamUpdate(request.POST, instance=team)
 
@@ -263,15 +263,15 @@ def Coach_Profile_Team_View_Update(request,team_id):
 
             else:
                 messages.error(request, ('Please correct the error below.'))
-    except models.Team.DoesNotExist:
+    except models.Teams.DoesNotExist:
         raise Http404("Team does not exist")
     form = TeamUpdate(request.POST or None,instance=team)
     args = {'form': form}
     return render(request, 'profile/Profile_Coach_Team_Update.html', args)
 def Coach_Profile_Team_View_Delete(request,team_id):
     try:
-        models.Team.objects.get(id=team_id).delete()
-    except models.Team.DoesNotExist:
+        models.Teams.objects.get(id=team_id).delete()
+    except models.Teams.DoesNotExist:
         raise  Http404("Team does not exist")
     return render(request, 'profile/Profile_Coach_Team_SuccessPage.html')
 

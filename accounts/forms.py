@@ -34,7 +34,7 @@ class UserLoginForm(forms.Form):
 class UserProfileinfo(forms.ModelForm):
 
     class Meta:
-        model= models.Coach
+        model= models.Coachs
         fields = [
             'city',
             'state',
@@ -44,7 +44,7 @@ class UserProfileinfo(forms.ModelForm):
 class TeamUpdate(forms.ModelForm):
 
     class Meta:
-        model= models.Team
+        model= models.Teams
         fields = [
             'team_name',
             'mascot',
@@ -55,7 +55,7 @@ class TeamUpdate(forms.ModelForm):
 class PlayerUpdate(forms.ModelForm):
 
     class Meta:
-        model= models.Player
+        model= models.Players
         fields =('team','hometown','homestate','first_name','last_name','email',
                  'height_feet','height_inches','weight','batting_orientation','player_number','position')
 
@@ -107,7 +107,7 @@ class Userflnameedit(forms.Form):
 class teamregistration(forms.ModelForm):
     team_name=forms.CharField(label='team_name')
     class Meta:
-        model=models.Team
+        model=models.Teams
         fields=('team_name','mascot','city','state')
         exclude = ('coach',)
     """def clean(self):
@@ -122,7 +122,7 @@ class PlayerRegistrationForm(forms.ModelForm):
 
 
     class Meta:
-        model = models.Player
+        model = models.Players
         fields =('team','hometown','homestate','first_name','last_name','email','email2',
                  'height_feet','height_inches','weight','batting_orientation','player_number','position')
         exclude=('password','username','type')
@@ -130,13 +130,13 @@ class PlayerRegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         super(PlayerRegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['team'].queryset = models.Team.objects.filter(coach=self.user)
+        self.fields['team'].queryset = models.Teams.objects.filter(coach=self.user)
     def clean_email2(self):
         email = self.cleaned_data.get('email')
         email2 = self.cleaned_data.get('email2')
         if email != email2:
             raise forms.ValidationError("Emails must match")
-        email_qs = models.Player.objects.filter(email=email)
+        email_qs = models.Players.objects.filter(email=email)
         if email_qs.exists():
             raise forms.ValidationError("This email has already been registered")
         return email

@@ -21,7 +21,7 @@ state_choice=(("AL","Alabama"),("AK","Alaska"),("AZ","Arizona"),("AR","Arkansas"
               ("UT","Utah"),("VT","Vermont"),("VA","Virginia"),("WA","Washington"),("WV","West Virginia"),("WI","Wisconsin"),("WY","Wyoming"))
 # Create your models here.
 # Create your models here.
-class Coach(models.Model):
+class Coachs(models.Model):
     user= models.OneToOneField(User, on_delete=models.CASCADE, unique=True, related_name='profile')
     city = models.CharField(max_length=21)
     state = models.CharField(max_length=20, choices=state_choice)
@@ -29,14 +29,14 @@ class Coach(models.Model):
 
     def create_profile(sender, **kwargs):
         if kwargs['created']:
-            user_profile = Coach.objects.create(user=kwargs['instance'])
+            user_profile = Coachs.objects.create(user=kwargs['instance'])
 
     post_save.connect(create_profile, sender=User)
     def __str__(self):
         return self.user.username
 
-class Team(models.Model):
-    coach = models.ForeignKey(Coach, on_delete=models.CASCADE)
+class Teams(models.Model):
+    coach = models.ForeignKey(Coachs, on_delete=models.CASCADE)
     team_name = models.CharField(max_length=40)
     mascot = models.CharField(max_length=15)
     city = models.CharField(max_length=21)
@@ -44,7 +44,7 @@ class Team(models.Model):
 
     def __str__(self):
         return self.team_name
-class Player(models.Model):
+class Players(models.Model):
     predominate_hand_choices=(('left','left'),('right','right'))
     baseball_positions=(('pitcher','pitcher'),('catcher','catcher'),('first base','first base'),('second base','second base')
                         ,('third base','third base'),('shortstop','shortstop'),('right fielder','right fielder'),
@@ -57,7 +57,7 @@ class Player(models.Model):
     username=models.CharField(max_length=30)
     password=models.CharField(max_length=8)
     type = models.CharField(max_length=50, choices=type_choices)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, blank=True, null=True)
+    team = models.ForeignKey(Teams, on_delete=models.CASCADE, blank=True, null=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     hometown = models.CharField(max_length=21)
@@ -73,8 +73,8 @@ class Player(models.Model):
     def __str__(self):
         return self.first_name + '\n'+self.last_name
 
-class Swing(models.Model):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+class Swings(models.Model):
+    player = models.ForeignKey(Players, on_delete=models.CASCADE)
     swing_name = models.CharField(max_length=50)
     start_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
     end_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
