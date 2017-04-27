@@ -121,6 +121,7 @@ class PlayerRegistrationForm(forms.ModelForm):
     email2 = forms.EmailField(label='Confirm Email')
 
 
+
     class Meta:
         model = models.Players
         fields =('team','hometown','homestate','first_name','last_name','email','email2',

@@ -75,7 +75,7 @@ class Players(models.Model):
 
 class Swings(models.Model):
     player = models.ForeignKey(Players, on_delete=models.CASCADE)
-    swing_name = models.CharField(max_length=50)
+    timestamp= models.DateTimeField(auto_now_add=True)
     start_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
     end_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
     start_rot_y = models.DecimalField(max_digits=200, decimal_places=3)
