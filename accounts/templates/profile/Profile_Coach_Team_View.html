@@ -21,6 +21,10 @@
                   <th>City</th>
                   <th>State</th>
                   <th>Position</th>
+                  <th>username</th>
+                  <th>password</th>
+                  <th>Update</th>
+                  <th>Delete</th>
 
                 </tr>
               </thead>
@@ -33,6 +37,8 @@
                   <td>{{ players.hometown}}</td>
                   <td>{{ players.homestate}}</td>
                   <td>{{ players.position}}</td>
+                  <td>{{ players.username}}</td>
+                  <td>{{ players.password}}</td>
                   <td><a href="{% url 'Coach_Player_View_Update' players.id %}">Update Player</a></td>
                   <td><a href="{% url 'Coach_Player_View_Delete' players.id %}">Delete Player</a></td>
 

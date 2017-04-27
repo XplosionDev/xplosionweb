@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'crispy_forms',
+    'mathfilters',
 ]
 
 EMAIL_USE_TLS=True

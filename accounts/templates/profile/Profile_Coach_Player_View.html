@@ -17,20 +17,23 @@
                 <tr>
 
                   <th>Speed</th>
-                  <th>start rotation x</th>
-                  <th>end rotation x</th>
-                  <th>start rotation y</th>
-                  <th>end rotation y</th>
-                  <th>start rotation z</th>
-                  <th>end rotation z</th>
+                  <th>change in rotation</th>
+                  <th>change in postion x</th>
+                  <th>change in postion y</th>
+                  <th>change in postion z</th>
+
                 </tr>
               </thead>
               <tbody>
               {% for player in player%}
+                  {% load mathfilters %}
                 <tr>
                   <td style="color: white;"><a>{{ player.speed }}</a></td>
-                  <td><a>{{ player.start_rot }}</a></td>
-                  <td><a>{{ player.end_rot }}</a></td>
+                  <td><a>{{ player.start_rot|sub:player.end_rot }}</a></td>
+                  <td><a>{{ player.start_pos_x|sub:player.end_pos_x}}</a></td>
+                  <td><a>{{ player.start_pos_y|sub:player.end_pos_y}}</a></td>
+                  <td><a>{{ player.start_pos_z|sub:player.end_pos_z}}</a></td>
+
 
                 </tr>
               {% endfor %}

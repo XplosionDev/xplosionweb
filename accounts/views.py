@@ -1,24 +1,17 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.contrib.auth import (
-    authenticate,
-    get_user_model,
-    login,
-    logout,
-
-
-    )
+from django.contrib.auth import (authenticate,login,logout)
 from random import randint
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render, redirect,HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User,Group
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.http import Http404
-
 from .forms import UserLoginForm, UserRegisterForm,UserProfileinfo,PlayerRegistrationForm,teamregistration,TeamUpdate,PlayerUpdate,Useremailedit,Userflnameedit
 from . import models
+import math
+
 
 
 def login_view(request):
@@ -201,10 +194,17 @@ def index(request):
 def Coach_Profile_Player_View(request,player_id):
     try:
         player= models.Players.objects.get(id=player_id).swings_set.all()
-        pname= models.Players.objects.get(id=player_id)
+        players= models.Players.objects.get(id=player_id).swings_set.all()
+
+        arraySize = len(player)
+        distanceList = [arraySize]
+
     except models.Players.DoesNotExist:
         raise Http404("Player Does not exist")
-    args={'player':player,'pname': pname}
+    for player in player:
+        vector=math.sqrt(((player.start_pos_x-player.end_pos_x)**2)+((player.start_pos_y-player.end_pos_y)**2)+((player.start_pos_z-player.end_pos_z)**2))
+        distanceList.append(vector)
+    args={'player':players, 'vector':distanceList}
     return render(request, 'profile/Profile_Coach_Player_View.html', args)
 
 def Coach_Profile_Player_View_Update(request,player_id):
@@ -249,6 +249,7 @@ def Coach_Profile_Team_View(request,team_id):
     #players=team.players_set.all()
     return render(request, 'profile/Profile_Coach_Team_View.html', {'players':team})
 def Coach_Profile_Team_View_Update(request,team_id):
+
     try:
         team = models.Teams.objects.get(id=team_id)
         if request.method == 'POST':
