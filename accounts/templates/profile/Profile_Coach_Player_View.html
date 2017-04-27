@@ -15,7 +15,7 @@
             <table class="table table-striped" style="color:#E75926">
               <thead>
                 <tr>
-                  <th>Swing Name</th>
+
                   <th>Speed</th>
                   <th>start rotation x</th>
                   <th>end rotation x</th>
@@ -28,14 +28,10 @@
               <tbody>
               {% for player in player%}
                 <tr>
-                  <td><a>{{ player.swing_name }}</a></td>
-                  <td><a>{{ player.speed }}</a></td>
-                  <td><a>{{ player.start_rot_x }}</a></td>
-                  <td><a>{{ player.end_rot_x }}</a></td>
-                  <td><a>{{ player.start_rot_y }}</a></td>
-                  <td><a>{{ player.end_rot_y }}</a></td>
-                  <td><a>{{ player.start_rot_z }}</a></td>
-                  <td><a>{{ player.end_rot_z }}</a></td>
+                  <td style="color: white;"><a>{{ player.speed }}</a></td>
+                  <td><a>{{ player.start_rot }}</a></td>
+                  <td><a>{{ player.end_rot }}</a></td>
+
                 </tr>
               {% endfor %}
 

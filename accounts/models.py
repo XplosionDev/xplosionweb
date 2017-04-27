@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from datetime import datetime
 
 from django.db import models
 
@@ -75,13 +76,9 @@ class Players(models.Model):
 
 class Swings(models.Model):
     player = models.ForeignKey(Players, on_delete=models.CASCADE)
-    timestamp= models.DateTimeField(auto_now_add=True)
-    start_rot_x = models.FloatField()
-    end_rot_x = models.FloatField()
-    start_rot_y = models.FloatField()
-    end_rot_y = models.FloatField()
-    start_rot_z = models.FloatField()
-    end_rot_z = models.FloatField()
+    timestamp= models.DateTimeField(default=datetime.now)
+    start_rot = models.FloatField()
+    end_rot = models.FloatField()
     start_pos_x = models.FloatField()
     end_pos_x = models.FloatField()
     start_pos_y = models.FloatField()
