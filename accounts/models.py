@@ -76,19 +76,19 @@ class Players(models.Model):
 class Swings(models.Model):
     player = models.ForeignKey(Players, on_delete=models.CASCADE)
     timestamp= models.DateTimeField(auto_now_add=True)
-    start_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
-    end_rot_x = models.DecimalField(max_digits=200, decimal_places=3)
-    start_rot_y = models.DecimalField(max_digits=200, decimal_places=3)
-    end_rot_y = models.DecimalField(max_digits=200, decimal_places=3)
-    start_rot_z = models.DecimalField(max_digits=200, decimal_places=3)
-    end_rot_z = models.DecimalField(max_digits=200, decimal_places=3)
-    start_pos_x = models.DecimalField(max_digits=200, decimal_places=3)
-    end_pos_x = models.DecimalField(max_digits=200, decimal_places=3)
-    start_pos_y = models.DecimalField(max_digits=200, decimal_places=3)
-    end_pos_y = models.DecimalField(max_digits=200, decimal_places=3)
-    start_pos_z = models.DecimalField(max_digits=200, decimal_places=3)
-    end_pos_z = models.DecimalField(max_digits=200, decimal_places=3)
-    speed = models.DecimalField(max_digits=300, decimal_places=3)
+    start_rot_x = models.FloatField()
+    end_rot_x = models.FloatField()
+    start_rot_y = models.FloatField()
+    end_rot_y = models.FloatField()
+    start_rot_z = models.FloatField()
+    end_rot_z = models.FloatField()
+    start_pos_x = models.FloatField()
+    end_pos_x = models.FloatField()
+    start_pos_y = models.FloatField()
+    end_pos_y = models.FloatField()
+    start_pos_z = models.FloatField()
+    end_pos_z = models.FloatField()
+    speed = models.FloatField()
     def __str__(self):
-        return self.player.first_name + '\n'+self.player.last_name + '\n' + self.swing_name
+        return self.player.first_name + '\n'+self.player.last_name + '\n'
 
